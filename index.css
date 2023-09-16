@@ -1,0 +1,18 @@
+.logo-name {
+  font-size: larger;
+}
+
+.service-item img {
+  border-radius: 1rem;
+  width: 100%;
+}
+
+.locations a {
+  box-shadow: 0 0 15px rgb(228, 228, 228);
+  background-color: rgb(255, 247, 237);
+}
+
+.locations a:hover {
+  box-shadow: 0 0 5px black;
+  border-radius: 2rem;
+}
