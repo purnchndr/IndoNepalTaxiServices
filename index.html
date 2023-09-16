@@ -246,6 +246,138 @@
       <!-- Carousel End -->
 
       <!-- Booking Start -->
+      <div
+        class="container-fluid booking pb-5 wow fadeIn"
+        data-wow-delay="0.1s"
+      >
+        <div class="container">
+          <div class="bg-white shadow" style="padding: 35px">
+            <form
+              id="email-form"
+              action="/https://formspree.io/f/meqbzzkr"
+              method="POST"
+            >
+              <h5 class="display-5 text-primary animated slideInDown">
+                Submit Request
+              </h5>
+              <div class="row g-2">
+                <div class="col-md-10">
+                  <div class="row g-2">
+                    <div class="col-md-3">
+                      <input
+                        type="datetime-local"
+                        class="form-control"
+                        placeholder="Your ddtt"
+                        id="date"
+                        name="date"
+                        required
+                      />
+                    </div>
+                    <div class="col-md-3">
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Your Name"
+                        id="name"
+                        name="name"
+                        required
+                      />
+                    </div>
+
+                    <div class="col-md-3">
+                      <input
+                        type="number"
+                        class="form-control"
+                        placeholder="Your Mobile Number"
+                        id="mobile"
+                        name="mobile"
+                        required
+                      />
+                    </div>
+
+                    <div class="col-md-3">
+                      <input
+                        type="email"
+                        class="form-control"
+                        placeholder="Your Email Address"
+                        id="email"
+                        name="email"
+                        required
+                      />
+                    </div>
+
+                    <div class="col-md-3">
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Your Place"
+                        id="place"
+                        name="place"
+                        required
+                      />
+                    </div>
+
+                    <div class="col-md-3">
+                      <input
+                        type="text"
+                        class="form-control"
+                        placeholder="Your Destination"
+                        id="destination"
+                        name="destination"
+                        required
+                      />
+                    </div>
+
+                    <div class="col-md-3">
+                      <select
+                        title="peoples"
+                        class="form-select"
+                        id="peoples"
+                        placeholder="Number of Peoples"
+                        name="adults"
+                      >
+                        <option value="1">Total Peoples</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                        <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-3 align-items-center">
+                  <button id="my-form-button" class="btn btn-primary w-100">
+                    Submit
+                  </button>
+                </div>
+                <p class="mb-0 animated slideInDown" id="my-form-status"></p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <!-- Booking End -->
+      <!-- action="https://formspree.io/f/meqbzzkr" -->
+      <!-- <form
+        id="email2-form"
+        action="https://formspree.io/f/meqbzzkr"
+        method="POST"
+      >
+        <label>Email:</label>
+        <input type="email" name="email" onchange="change()" />
+        <label>Message:</label>
+        <input type="text" name="message" />
+        <button id="my-form-button" type="submit">Submit</button>
+        <p class="text-body mb-0" id="my-form-status"></p>
+      </form> -->
+
+      <!-- Booking Start -->
       <!-- <div
         class="container-fluid booking pb-5 wow fadeIn"
         data-wow-delay="0.1s"
@@ -590,7 +722,6 @@
               <a
                 class="service-item rounded"
                 target="_blank"
-                referrerpolicy="none"
                 href="https://api.whatsapp.com/send/?phone=%2B918887537960&text=Hi+I+am+looking+for+a+taxi+from+Gorakhpur+to+Ballia&type=phone_number&app_absent=0"
               >
                 <div class="service-icon bg-transparent border rounded p-1">
@@ -1334,6 +1465,7 @@
     <script src="lib/tempusdominus/js/moment.min.js"></script>
     <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
     <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 
     <script>
       function sendEmail() {
@@ -1348,5 +1480,47 @@
     </script>
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <!-- <script>
+      var form = document.getElementById("email-form");
+
+      async function handleSubmit(event) {
+        event.preventDefault();
+        var status = document.getElementById("my-form-status");
+        var data = new FormData(event.target);
+        console.log(data);
+        fetch(event.target.action, {
+          method: form.method,
+          body: data,
+          headers: {
+            Accept: "application/json",
+          },
+        })
+          .then((response) => {
+            if (response.ok) {
+              status.innerHTML = "Thanks for your submission!";
+              form.reset();
+            } else {
+              response.json().then((data) => {
+                if (Object.hasOwn(data, "errors")) {
+                  status.innerHTML = data["errors"]
+                    .map((error) => error["message"])
+                    .join(", ");
+                } else {
+                  status.innerHTML =
+                    "Oops! There was a problem submitting your form";
+                }
+              });
+            }
+          })
+          .catch((error) => {
+            status.innerHTML = "Oops! There was a problem submitting your form";
+          });
+
+        setInterval(() => {
+          status.innerHTML = "";
+        }, 5000);
+      }
+      form.addEventListener("submit", handleSubmit);
+    </script> -->
   </body>
 </html>

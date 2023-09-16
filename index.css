@@ -16,3 +16,9 @@
   box-shadow: 0 0 5px black;
   border-radius: 2rem;
 }
+
+#my-form-status {
+  color: white;
+  text-align: center;
+  background-color: green;
+}
